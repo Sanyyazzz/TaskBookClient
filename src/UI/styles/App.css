@@ -2,7 +2,7 @@
   margin:0 auto;
   text-align: center;
   background-color: #eeeeee;
-  height: 100vh;
+  height: 100%;
 }
 
 .App-logo {
@@ -27,3 +27,15 @@
   align-items: center;
 }
 
+.timeCard{
+  color: black;
+  background-color: #d9d9d9;
+  padding: 3px;
+  border-radius: 5px;
+  margin-left: 5px;
+}
+
+.completeTask{
+  text-decoration: line-through;
+  color: green;
+}

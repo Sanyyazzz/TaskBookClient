@@ -30,7 +30,8 @@ const RowTask = (props) => {
 
     const info =
         <>
-            <Row style={{
+            <Row
+                style={{
                 alignItems:"center"
             }}>
                 <Col style={{
@@ -59,10 +60,13 @@ const RowTask = (props) => {
                         {props.task.taskDesc}
                     </Row>
                     <Row style={{
-                        color:"grey"
+                        color:"grey",
+                        marginTop:"5px"
                     }}>
-                        {props.task.category}
-                        {props.task.deadLine && <> • {props.task.deadLine}</>}
+                        {props.task.category
+                            ? <>{props.task.category} {props.task.deadLine && <>• {getTimeFromString(props.task.deadLine)}</>}</>
+                            : <>{getTimeFromString(props.task.deadLine)}</>
+                        }
                     </Row>
                 </Col>
             </Row>
@@ -74,7 +78,7 @@ const RowTask = (props) => {
             onClick={onDeleteTask}
             style={{marginRight:"10px"}}
         >
-            <CheckCircleOutlined style={{color:"1890FF"}} />
+            <DeleteOutlined style={{color:"1890FF"}} />
         </Button>
         :
         (<Row>
@@ -104,6 +108,7 @@ const RowTask = (props) => {
     return (
         <tr key={props.task.id}>
             <Card
+                className={props.task.completed && "completeTask"}
                 style={{
                     width:"1200px",
                     marginBottom:"10px",
@@ -114,7 +119,9 @@ const RowTask = (props) => {
                     alignItems:"center",
                     justifyContent:"space-between"
                 }}>
-                    <div>{info}</div>
+                    <div
+                        className={props.task.completed && "completeTask"}
+                    >{info}</div>
                     <div>{buttons}</div>
                 </Row>
             </Card>

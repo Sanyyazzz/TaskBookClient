@@ -1,13 +1,19 @@
-import {changeProviderApiRequest} from "../../../DATA/reducers/providerSlice";
+import {changeProviderApiRequest, getProviderNameApiRequest} from "../../../DATA/reducers/providerSlice";
 import {useDispatch, useSelector} from "react-redux";
-import {React} from "react";
+import {React, useEffect} from "react";
 import {Button, Row} from "antd";
 
 const ProviderSwitch = () => {
     const provider = useSelector(store=>store.providers.providers);
 
     const dispatch = useDispatch();
+
+    useEffect(()=>{
+        dispatch(getProviderNameApiRequest());
+    },[])
+
     const onChangeProvider = (provider) => {
+        debugger
         dispatch(changeProviderApiRequest(provider));
     }
 

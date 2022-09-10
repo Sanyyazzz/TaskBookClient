@@ -26,7 +26,7 @@ const RowEdit = (props) => {
 
     const onTaskDescChanged = e => setTaskDesc(e.target.value)
     const onDeadlineChanged = e => setDeadline(e.target.value)
-    const onCategoryChanged = e => setCategory(e.target.value)
+    const onCategoryChanged = e => setCategory(e)
     const onImportantStatusChanged = e => setImportantStatus(!important)
 
     const dispatch = useDispatch();
@@ -35,7 +35,7 @@ const RowEdit = (props) => {
         getTaskByIdQuery(props.task.id)
             .then(data => {
                setTaskDesc(data.data.task.getById.taskDesc);
-               setDeadline(data.data.task.getById.deadLine);
+               setDeadline(moment(data.data.task.getById.deadLine));
                setImportantStatus(data.data.task.getById.important);
                setCategory(
                    getCategoryIdByName(categoriesList,data.data.task.getById.category)

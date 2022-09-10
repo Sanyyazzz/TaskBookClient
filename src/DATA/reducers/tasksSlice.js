@@ -14,7 +14,7 @@ export const tasksSlice = createSlice({
             {
                 id: 1,
                 taskDesc: "Learn homework (Ex.5, p.45)",
-                deadLine: "2022-05-04",
+                deadLine: null,
                 category: "Home",
                 completed: false,
                 important: false

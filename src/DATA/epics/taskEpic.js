@@ -14,6 +14,7 @@ import {addTaskMutation} from "../graphQL/mutation/task/addTaskMutation";
 import {deleteTaskMutation} from "../graphQL/mutation/task/deleteTaskMutation";
 import {editTaskMutation} from "../graphQL/mutation/task/editTaskMutation";
 import {completeTaskMutation} from "../graphQL/mutation/task/completeTaskMutation";
+import moment from "moment";
 
 const getAllTaskEpic = action$ => {
     return action$.pipe(
@@ -24,6 +25,7 @@ const getAllTaskEpic = action$ => {
                     map(data=>{
                         const tasks = data.data.task.getAll;
                         tasks && tasks.forEach((task)=>{if(task.deadLine)task.deadLine = new Date(task.deadLine)});
+                        console.log(tasks);
                         return loadAllTask(tasks);
                     })
                 );

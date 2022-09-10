@@ -5,13 +5,14 @@ import {Button, Card, Col, DatePicker, Dropdown, Input, Row, Select, Space} from
 import {PlusOutlined, CalendarOutlined} from "@ant-design/icons";
 import moment from 'moment';
 import {Link} from "react-router-dom";
+import {Option} from "antd/es/mentions";
 
 const InputTask = () => {
     const categoriesList = useSelector(store => store.categories.categories);
 
     const [taskDesc, setTaskDesc] = useState(null)
     const [deadLine, setDeadline] = useState(null)
-    const [category, setCategory] = useState(null)
+    const [category, setCategory] = useState('')
 
     const dispatch = useDispatch();
     const onAddTask = () => {
@@ -33,10 +34,8 @@ const InputTask = () => {
     }
 
     const onTaskDescChanged = e => setTaskDesc(e.target.value)
-    const onDeadlineChanged = e => {
-        setDeadline(e);
-    }
-    const onCategoryChanged = e => setCategory(e.target.value)
+    const onDeadlineChanged = e => setDeadline(e)
+    const onCategoryChanged = e => setCategory(e)
 
     return (
         <>
@@ -76,9 +75,9 @@ const InputTask = () => {
                                     style={{
                                     width:"150px"
                                 }}>
-                                    <option key={0} value={null}></option>
+                                    <Option key={0} value={''} children={''}></Option>
                                     {categoriesList.map(category=>
-                                        <option key={category.id} value={category.id}>{category.category}</option>
+                                        <Option key={category.id} value={category.id} children={category.category}></Option>
                                     )}
                                 </Select>
                             </Space>

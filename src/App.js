@@ -16,9 +16,9 @@ function App() {
     const provider = useSelector(store=>store.providers.providers);
 
     useEffect(() => {
+        debugger
         dispatch(getAllTaskApiRequest());
         dispatch(getAllCategoryApiRequest());
-        dispatch(getProviderNameApiRequest());
     }, [provider])
 
   return (
@@ -26,8 +26,8 @@ function App() {
         <PageHeader
             title={"TodoList"}
             extra={[
-                <div>Storage</div>,
-                <ProviderSwitch/>
+                <div key={0}>Storage</div>,
+                <ProviderSwitch key={1}/>
             ]}
         />
         <div className="content">
