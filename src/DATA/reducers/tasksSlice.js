@@ -58,6 +58,7 @@ export const { loadAllTask, addTask, editTask, deleteTask, completed } = tasksSl
 export const getAllTaskApiRequest = createAction('task/getAll/api/request');
 export const addTaskApiRequest = createAction('task/addTask/api/request');
 export const editTaskApiRequest = createAction('task/editTask/api/request');
+export const editImportantStatusApiRequest = createAction('task/editTask/api/request');
 export const deleteTaskApiRequest = createAction('task/deleteTask/api/request');
 export const completeTaskApiRequest = createAction('task/completeTask/api/request');
 

@@ -1,5 +1,4 @@
 import {React, useState} from 'react';
-import '../../styles/index.css';
 import RowTask from "./RowOfTaskList";
 import {useSelector} from "react-redux";
 

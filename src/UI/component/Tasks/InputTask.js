@@ -19,9 +19,10 @@ const InputTask = () => {
         if(!taskDesc){
             alert("Task is null!");
         }else{
+            debugger
             dispatch(addTaskApiRequest({
                 taskDesc,
-                deadLine:deadLine.format("YYYY-MM-DDTHH:mm"),
+                deadLine: deadLine ? deadLine.format("YYYY-MM-DDTHH:mm") : null,
                 categoryID: parseInt(category),
                 completed: false,
                 important: false

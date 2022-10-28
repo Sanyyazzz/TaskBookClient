@@ -12,12 +12,12 @@ const SortCategoryInput = () => {
     const [category,setCategory] = useState(null);
 
     const onChangedCategorySort = (e) => {
-        setCategory(e.target.value);
+        setCategory(e);
     }
 
     const onSubmitSort = () => {
         category
-            ? dispatch(getAllTaskApiRequest(category))
+            ? dispatch(getAllTaskApiRequest(category.toString()))
             : dispatch(getAllTaskApiRequest());
     }
 
@@ -38,14 +38,14 @@ const SortCategoryInput = () => {
                 {category && <CloseOutlined onClick={onCancelSort} style={{marginRight:"10px"}} />}
                 <Select
                     style={{border:"0", backgroundColor:"transparent", width:"100px", marginRight:"10px"}}
-                    onChange={onChangedCategorySort}
+                    onChange={(val)=>onChangedCategorySort(val)}
                 >
-                    <option key={0} value={null}></option>
+                    <option key={0} value={null}>{""}</option>
                     {categoriesList.map(category=>
                         <option key={category.id} value={category.id}>{category.category}</option>
                     )}
                 </Select>
-                <FilterOutlined style={{fontSize:"20px"}} onClick={onSubmitSort}/>
+                <FilterOutlined style={{fontSize:"20px", color:"black"}} onClick={onSubmitSort}/>
             </Row>
         </>
     )
