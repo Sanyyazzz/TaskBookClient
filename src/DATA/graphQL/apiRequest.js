@@ -1,5 +1,5 @@
 export const apiRequest = (query, variables) => {
-    const url = 'http://taskbookapi.somee.com/graphql';
+    const url = 'https://taskbookapi.somee.com/graphql';
 
     const response = fetch(url, {
         method: 'POST',
