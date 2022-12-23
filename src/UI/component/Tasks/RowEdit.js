@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {editTask, editTaskApiRequest} from "../../../DATA/reducers/tasksSlice";
+import {editTask, editTaskApiRequest, getAllTaskApiRequest} from "../../../DATA/reducers/tasksSlice";
 import {getTaskByIdQuery} from "../../../DATA/graphQL/query/task/getTaskByIdQuery";
 import {apiRequest} from "../../../DATA/graphQL/apiRequest";
 import {getCategoryIdByName} from "../../../function/getCategoryIdByName";
@@ -53,6 +53,7 @@ const RowEdit = (props) => {
             important
         }));
         props.onSaveStatus();
+        dispatch(getAllTaskApiRequest());
     }
 
     const onCancelEdit = () => {

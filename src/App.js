@@ -14,6 +14,8 @@ import {PageHeader} from "antd";
 function App() {
     const dispatch = useDispatch();
     const provider = useSelector(store=>store.providers.providers);
+    const tasks = useSelector(store=>store.tasks.tasks);
+    const categories = useSelector(store=>store.categories.categories);
 
     useEffect(() => {
         debugger

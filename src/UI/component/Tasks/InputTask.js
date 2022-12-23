@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {addTaskApiRequest} from "../../../DATA/reducers/tasksSlice";
+import {addTaskApiRequest, getAllTaskApiRequest} from "../../../DATA/reducers/tasksSlice";
 import {Button, Card, Col, DatePicker, Dropdown, Input, Row, Select, Space} from "antd";
 import {PlusOutlined, CalendarOutlined} from "@ant-design/icons";
 import moment from 'moment';
@@ -19,7 +19,6 @@ const InputTask = () => {
         if(!taskDesc){
             alert("Task is null!");
         }else{
-            debugger
             dispatch(addTaskApiRequest({
                 taskDesc,
                 deadLine: deadLine ? deadLine.format("YYYY-MM-DDTHH:mm") : null,
